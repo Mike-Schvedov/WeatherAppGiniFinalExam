@@ -23,7 +23,7 @@ class LocationCacheWorker  constructor(context: Context, params: WorkerParameter
    lateinit var currentLocation : Location
 
     override suspend fun doWork(): Result {
-        
+
         return try {
             fusedLocationProviderClient.lastLocation
                 .addOnSuccessListener { location : Location? ->

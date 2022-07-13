@@ -102,8 +102,6 @@ class MainActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
             requestForegroundPermissions()
         }
 
-        // Creating a periodic worker task
-        launchPeriodicDatabaseUpdate()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -258,7 +256,6 @@ class MainActivity : AppCompatActivity(), NetworkStateReceiver.NetworkStateRecei
             .build()
         // Creating a request
         val request = PeriodicWorkRequestBuilder<LocationCacheWorker>(24, TimeUnit.HOURS)
-            .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
             .setConstraints(constraint)
             .build()
         // Placing the request into a queue

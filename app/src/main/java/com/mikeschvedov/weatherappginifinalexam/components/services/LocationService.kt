@@ -60,7 +60,6 @@ class LocationService : Service() {
             override fun onLocationResult(locationResult: LocationResult) {
                 super.onLocationResult(locationResult)
                 currentLocation = locationResult.lastLocation
-                println("----------- ON LOCATION RESULT  ${currentLocation}-------------")
                 val intent = Intent(ACTION_FOREGROUND_ONLY_LOCATION_BROADCAST)
                 intent.putExtra(EXTRA_LOCATION, currentLocation)
                 LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
